@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="header_title">
+        <item name="android:gravity">center</item>
+        <item name="android:paddingTop">100dp</item>
+        <item name="android:paddingBottom">100dp</item>
+        <item name="android:textSize">32sp</item>
+        <item name="android:textColor">@color/primary_text_color</item>
+    </style>
+
+    <style name="primary_button" parent="android:Widget.Material.Button">
+        <item name="android:background">@drawable/primary_btn</item>
+    </style>
+
+</resources>

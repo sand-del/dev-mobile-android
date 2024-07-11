@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+<!--    Design par défaut-->
+    <item>
+
+        <shape android:shape="rectangle">
+<!--            sans dégradé-->
+<!--            <solid android:color="@color/purple_500" />-->
+
+<!--            le dégradé-->
+            <gradient
+                android:startColor="#EDF1F4"
+                android:endColor="#C3CBDC"
+                android:angle="5" />
+
+<!--            une bordure-->
+            <stroke android:width="4dp"
+                android:color="#66FFFFFF"/>
+
+<!--            un radius-->
+            <corners android:radius="40dp"
+                />
+        </shape>
+
+    </item>
+</selector>

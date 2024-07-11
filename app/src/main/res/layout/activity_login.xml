@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical">
+
+    <!--    un bloc qui contient les éléments du formulaire-->
+    <LinearLayout
+        android:id="@+id/layoutForm"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingHorizontal="30dp">
+        <!--        android:gravity="center"-->
+
+
+        <!--    Titre-->
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginTop="100dp"
+            android:gravity="center"
+            android:paddingVertical="20dp"
+            android:src="@drawable/baseline_person_pin_24"
+            android:tint="@color/primary_text_color" />
+
+        <!--    champ email-->
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@android:drawable/sym_action_email"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:textColorHint="@color/primary_text_color" />
+
+        <!--    champ mdp-->
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@android:drawable/ic_lock_idle_lock"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:textColorHint="@color/white" />
+
+        <!--    lien oublie mdp-->
+        <TextView
+            android:id="@+id/tvResetPasword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:linksClickable="true"
+            android:padding="15dp"
+            android:text="@string/reset_password_link"
+            android:textAlignment="center"
+            android:textColor="@color/primary_text_color" />
+
+        <!--    bouton submit-->
+        <Button
+            android:id="@+id/btnSubmit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="CONNEXION" />
+
+        <TextView
+            android:id="@+id/tvRegister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:linksClickable="true"
+            android:padding="15dp"
+            android:text="@string/register_link"
+            android:textAlignment="center"
+            android:textColor="@color/primary_text_color"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</LinearLayout>
