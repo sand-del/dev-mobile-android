@@ -1,83 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/background"
-    android:orientation="vertical">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="registerViewModel"
+            type="com.example.android_tp.auth.RegisterViewModel" />
+    </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:paddingHorizontal="30dp">
+        android:background="@drawable/background"
+        android:orientation="vertical">
 
-        <TextView
-            style="@style/header_title"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Sign in" />
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingHorizontal="30dp">
 
-        <EditText
-            android:id="@+id/edtPseudo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Pseudo"
-            android:inputType="text"
-            android:textColorHint="@color/white" />
+            <TextView
+                style="@style/header_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sign in" />
 
-        <EditText
-            android:id="@+id/edtEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Email"
-            android:inputType="textEmailAddress"
-            android:textColorHint="@color/white" />
+            <EditText
+                android:id="@+id/edtPseudo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Pseudo"
+                android:inputType="text"
+                android:textColorHint="@color/white"
+                android:text="@={registerViewModel.person.pseudo}"/>
 
-        <EditText
-            android:id="@+id/edtPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Password"
-            android:inputType="textPassword"
-            android:textColorHint="@color/white" />
+            <EditText
+                android:id="@+id/edtEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:textColorHint="@color/white"
+                android:text="@={registerViewModel.person.email}"/>
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Password confirmation"
-            android:inputType="textPassword"
-            android:textColorHint="@color/white" />
+            <EditText
+                android:id="@+id/edtPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:textColorHint="@color/white"
+                android:text="@={registerViewModel.person.password}"/>
 
-        <EditText
-            android:id="@+id/edtCityCode"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="City code"
-            android:inputType="textPostalAddress"
-            android:textColorHint="@color/white" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Password confirmation"
+                android:inputType="textPassword"
+                android:textColorHint="@color/white"
+                android:text="@={registerViewModel.passwordConfirmation}"/>
 
-        <EditText
-            android:id="@+id/edtCity"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="City"
-            android:inputType="textPostalAddress"
-            android:textColorHint="@color/white" />
+            <EditText
+                android:id="@+id/edtCityCode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="City code"
+                android:inputType="textPostalAddress"
+                android:textColorHint="@color/white"
+                android:text="@={registerViewModel.person.cityCode}"/>
 
-        <EditText
-            android:id="@+id/edtPhone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Phone number"
-            android:inputType="phone"
-            android:textColorHint="@color/white" />
+            <EditText
+                android:id="@+id/edtCity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="City"
+                android:inputType="textPostalAddress"
+                android:textColorHint="@color/white"
+                android:text="@={registerViewModel.person.city}"/>
 
-        <Button
-            android:id="@+id/btnSubmit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="SUBMIT" />
+            <EditText
+                android:id="@+id/edtPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Phone number"
+                android:inputType="number"
+                android:textColorHint="@color/white"
+                android:text="0"/>
+
+            <Button
+                android:id="@+id/btnSubmit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="SUBMIT" />
+
+        </LinearLayout>
 
     </LinearLayout>
-
-</LinearLayout>
+</layout>

@@ -7,29 +7,37 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.LinearLayout
 import androidx.activity.ComponentActivity
+import androidx.databinding.DataBindingUtil
+import com.example.android_tp.auth.RegisterViewModel
+import com.example.android_tp.databinding.ActivityPasswordBinding
+import com.example.android_tp.databinding.ActivityRegisterBinding
 
 class RegisterActivity : ComponentActivity() {
+
+    lateinit var viewBinding: ActivityRegisterBinding
+    lateinit var registerViewModel: RegisterViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setContentView(R.layout.activity_register)
+        viewBinding = DataBindingUtil.setContentView(this, R.layout.activity_register)
+        registerViewModel = RegisterViewModel()
+        viewBinding.registerViewModel = registerViewModel
+        viewBinding.btnSubmit.setOnClickListener {
 
-        val btnSubmit = findViewById<Button>(R.id.btnSubmit)
-        btnSubmit.setOnClickListener {
-
-            //Afficher la saisie dans un log
+            //Afficher la saisie dans un log méthode tp3 - partie 1
 
             //1-- récupérer l'édit text, le champ
-            val edtPseudo = findViewById<EditText>(R.id.edtPseudo)
-            val edtEmail = findViewById<EditText>(R.id.edtEmail)
-            val edtPassword = findViewById<EditText>(R.id.edtPassword)
-            val edtCityCode = findViewById<EditText>(R.id.edtCityCode)
-            val edtCity = findViewById<EditText>(R.id.edtCity)
-            val edtPhone = findViewById<EditText>(R.id.edtPhone)
+//            val edtPseudo = findViewById<EditText>(R.id.edtPseudo)
+//            val edtEmail = findViewById<EditText>(R.id.edtEmail)
+//            val edtPassword = findViewById<EditText>(R.id.edtPassword)
+//            val edtCityCode = findViewById<EditText>(R.id.edtCityCode)
+//            val edtCity = findViewById<EditText>(R.id.edtCity)
+//            val edtPhone = findViewById<EditText>(R.id.edtPhone)
 
             //2-- récupération de la valeur du champ
-            val valueTest =
-                edtPseudo.text.toString() + " " + edtEmail.text.toString() + " " + edtPassword.text.toString() + " " + edtCityCode.text.toString() + " " + edtCity.text.toString() + " " + edtPhone.text.toString()
+//            val valueTest =
+//                viewBinding.edtPseudo.text.toString() + " " + viewBinding.edtEmail.text.toString() + " " + viewBinding.edtPassword.text.toString() + " " + viewBinding.edtCityCode.text.toString() + " " + viewBinding.edtCity.text.toString() + " " + viewBinding.edtPhone.text.toString()
 
             //version  optimisé du code ci dessus
 //            val editTextIds = listOf(
@@ -62,14 +70,24 @@ class RegisterActivity : ComponentActivity() {
             // afficher la popup
             DialogHelper.showDialog(this, message);
             */
-            Log.i("AndroidTP3", "Les valeurs saisies sont : ${valueTest}")
+//            Log.i("AndroidTP3", "Les valeurs saisies sont : ${valueTest}")
+//
+//            //afficher une pop.up
+//            val builder = AlertDialog.Builder(this)
+//            builder.setTitle("Information") //définition du titre de la popup
+//            builder.setMessage("Les valeurs saisies sont : ${valueTest}") //le message de la popup
+//            builder.show() //affiche dans l'écran la popup
 
-            //afficher une pop.up
-            val builder = AlertDialog.Builder(this)
-            builder.setTitle("Information") //définition du titre de la popup
-            builder.setMessage("Les valeurs saisies sont : ${valueTest}") //le message de la popup
-            builder.show() //affiche dans l'écran la popup
+            viewBinding.btnSubmit.setOnClickListener {
+                DialogHelper.showDialog(
+                    this, "Email : ${registerViewModel.person.value!!.email}" +
+                            "\nPseudo : ${registerViewModel.person.value!!.pseudo}" +
+                            "\nPassword : ${registerViewModel.person.value!!.password}" +
+                            "\nCity Code : ${registerViewModel.person.value!!.cityCode}" +
+                            "\nCity : ${registerViewModel.person.value!!.city}"
+                );
+            }
+
         }
-
     }
 }

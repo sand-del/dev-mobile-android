@@ -1,32 +1,32 @@
 package com.example.android_tp
 
-import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
 import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.android_tp.ui.theme.Android_TPTheme
+import androidx.databinding.DataBindingUtil
+import com.example.android_tp.auth.LoginViewModel
+import com.example.android_tp.databinding.ActivityLoginBinding
 
 class MainActivity : ComponentActivity() {
+
+    lateinit var viewBinding: ActivityLoginBinding
+    lateinit var loginViewModel: LoginViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setContentView(R.layout.activity_login)
+        //charger la vue en data binding
+        viewBinding = DataBindingUtil.setContentView(this, R.layout.activity_login)
 
-        val tvRegister = findViewById<TextView>(R.id.tvRegister)
+        //association view model xml
+        loginViewModel = LoginViewModel()
+        viewBinding.loginViewModel = loginViewModel
+
+
+//        val tvRegister = findViewById<TextView>(R.id.tvRegister)
+//        avec le DataBinding
+        val tvRegister = viewBinding.tvRegister
 
         //quand on clique j'ouvre une page
         tvRegister.setOnClickListener {
@@ -37,10 +37,8 @@ class MainActivity : ComponentActivity() {
 
         }
 
-        val tvResetPassword = findViewById<TextView>(R.id.tvResetPasword)
-
         //quand on clique j'ouvre une page
-        tvResetPassword.setOnClickListener {
+        viewBinding.tvResetPasword.setOnClickListener {
 
             //ouvrir la page inscription
             val intent = Intent(this, PasswordActivity::class.java)
@@ -48,8 +46,7 @@ class MainActivity : ComponentActivity() {
 
         }
 
-        val btnSubmit = findViewById<Button>(R.id.btnSubmit)
-        btnSubmit.setOnClickListener{
+        viewBinding.btnSubmit.setOnClickListener{
 
             //Affichage d'une pop up succès + log
 
