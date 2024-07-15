@@ -1,15 +1,9 @@
 package com.example.android_tp
 
-import android.app.AlertDialog
 import android.os.Bundle
-import android.util.Log
-import android.widget.Button
-import android.widget.EditText
-import android.widget.LinearLayout
 import androidx.activity.ComponentActivity
 import androidx.databinding.DataBindingUtil
 import com.example.android_tp.auth.RegisterViewModel
-import com.example.android_tp.databinding.ActivityPasswordBinding
 import com.example.android_tp.databinding.ActivityRegisterBinding
 
 class RegisterActivity : ComponentActivity() {
