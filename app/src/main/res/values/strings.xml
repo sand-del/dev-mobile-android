@@ -2,4 +2,5 @@
     <string name="app_name">Android_TP</string>
     <string name="register_link"><u>Register</u></string>
     <string name="reset_password_link"><u>Forget Password ?</u></string>
+    <string name="title_activity_login">LoginActivity</string>
 </resources>
