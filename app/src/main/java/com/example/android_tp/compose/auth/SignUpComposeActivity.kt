@@ -1,4 +1,4 @@
-package com.example.android_tp.compose
+package com.example.android_tp.compose.auth
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -11,11 +11,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AppRegistration
-import androidx.compose.material.icons.filled.Email
-import androidx.compose.material.icons.rounded.AccountCircle
-import androidx.compose.material.icons.rounded.Add
-import androidx.compose.material.icons.rounded.CheckCircle
-import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable

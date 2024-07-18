@@ -1,4 +1,4 @@
-package com.example.android_tp.compose
+package com.example.android_tp.compose.auth
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -10,11 +10,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.AccountCircle
-import androidx.compose.material.icons.filled.Email
-import androidx.compose.material.icons.rounded.AccountBox
-import androidx.compose.material.icons.rounded.AccountCircle
-import androidx.compose.material3.Icon
+import androidx.compose.material.icons.filled.LockOpen
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -32,28 +28,27 @@ import com.example.android_tp.ui.theme.AuthIcon
 import com.example.android_tp.ui.theme.ENITextField
 import com.example.android_tp.ui.theme.GradientButton
 
-class LoginActivity : ComponentActivity() {
+class ResetPasswordComposeActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
             Android_TPTheme {
-                LoginContentPage()
+                ResetPasswordContentPage()
             }
         }
     }
 }
 
-
 @Composable
-fun LoginContentPage() {
+fun ResetPasswordContentPage() {
 
     Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
         Box(
             modifier = with(Modifier) {
                 fillMaxSize().paint(
                     painterResource(id = R.drawable.background),
-                    contentScale = ContentScale.Crop
+                    contentScale = ContentScale.FillBounds
                 )
             })
         Column(
@@ -62,22 +57,24 @@ fun LoginContentPage() {
                 .fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            AuthIcon(imageVector = Icons.Default.AccountCircle)
-            Text(text = "Login", fontSize = 40.sp, modifier = Modifier.padding(top = 10.dp))
-            Spacer(modifier = Modifier.padding(vertical = 40.dp))
+            AuthIcon(imageVector = Icons.Default.LockOpen)
+            Text(
+                text = "Reset Password",
+                fontSize = 40.sp,
+                modifier = Modifier.padding(top = 10.dp)
+            )
+            Spacer(modifier = Modifier.padding(vertical = 60.dp))
             ENITextField(labelText = "Email")
-            ENITextField(labelText = "Password")
-            GradientButton(modifier = Modifier.padding(top = 10.dp), labelText = "Login")
+            GradientButton(modifier = Modifier.padding(top = 10.dp), labelText = "Send Link")
         }
-
     }
 
 }
 
 @Preview(showBackground = true)
 @Composable
-fun LoginComposePreview() {
+fun ResetPasswordComposePreview() {
     Android_TPTheme {
-        LoginContentPage()
+        ResetPasswordContentPage()
     }
 }
